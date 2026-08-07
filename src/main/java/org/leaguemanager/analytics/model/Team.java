@@ -1,11 +1,11 @@
 package org.leaguemanager.analytics.model;
 
-public class Clubs {
+public class Team {
 // Encapsulated instance variables
-    private String clubName;
+    private String teamName;
     private String location;
     private String stadium;
-    private Conference conference;
+    //private Conference conference;
 
 
 private enum Conference{
@@ -13,35 +13,31 @@ private enum Conference{
     WESTERN
 }
 
-    public void setconference(Conference conference) {
-        this.conference = conference;
-    }
 
-
-public Clubs(String clubName, String location, String stadium, Conference conference){
-    this.clubName = clubName;
+public Team(String teamName, String location, String stadium){
+    this.teamName = teamName;
     this.location = location;
     this.stadium = stadium;
-    this.conference = conference;
+    //this.conference = conference;
 }
 // Do not make getters private because it defeats the purpose
 public void setClubName(String clubName){
-    this.clubName = clubName;
+    this.teamName = clubName;
 }
 
 public String getClubName(){
-    return this.clubName;
+    return this.teamName;
 }
 
-public void setlocation(String location){
+public void setLocation(String location){
     this.location = location;
 }
 
-public String getlocation(){
+public String getLocation(){
     return this.location;
 }
 
-public void setstadium(String stadium){
+public void setStadium(String stadium){
     this.stadium = stadium;
 }
 

@@ -1,34 +1,37 @@
 package org.leaguemanager.analytics.model;
 import java.time.LocalDate;
 
-public class Players {
+public class Player {
     // Here I encapsulated these variables which are the core attributes for a player
     private String firstName;
     private String lastName;
     private int jerseyNumber;
     private Position position;
+    //Using long since it gives us some overhead
+    private long playerId;
 
 
 
 
     // Here I will add more specifics such as player mesurements financial and age
     private Integer salary;
-    private LocalDate age;
+    private LocalDate dateOfBirth;
 
     //Constructor Method
-    public Players(String firstName, String lastName, int jerseyNumber, Position position, Integer salary,LocalDate age ){
+    public Player(String firstName, String lastName, int jerseyNumber, Position position, long playerId, Integer salary, LocalDate dateOfBirth ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.jerseyNumber = jerseyNumber;
         this.position = position;
+        this.playerId = playerId;
         this.salary = salary;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
 
 
 
     }
 
-    // Enumurating Posistions since they are fixed and we know what they are.
+    // Enum Positions since they are fixed.
 
     public enum Position {
         FORWARD,
@@ -69,6 +72,14 @@ public class Players {
             return this.position;
         }
 
+        public void setPlayerId(long playerId){
+            this.playerId = playerId;
+        }
+
+        public long getPlayerId(){
+            return this.playerId;
+        }
+
         public void setSalary(Integer salary){
             this.salary = salary;
         }
@@ -77,12 +88,12 @@ public class Players {
             return this.salary;
         }
 
-        public void setage(LocalDate age) {
-            this.age = age;
+        public void setAge(LocalDate age) {
+            this.dateOfBirth = age;
         }
 
-        public LocalDate getage(){
-            return this.age;
+        public LocalDate getAge(){
+            return this.dateOfBirth;
         }
 
 
