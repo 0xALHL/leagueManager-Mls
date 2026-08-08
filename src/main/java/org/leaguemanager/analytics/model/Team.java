@@ -1,5 +1,11 @@
 package org.leaguemanager.analytics.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
+
+
+
 public class Team {
 // Encapsulated instance variables
     private String teamName;

@@ -1,5 +1,9 @@
 package org.leaguemanager.analytics.model;
+
+
+
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Player {
     // Here I encapsulated these variables which are the core attributes for a player
@@ -8,24 +12,27 @@ public class Player {
     private int jerseyNumber;
     private Position position;
     //Using long since it gives us some overhead
-    private long playerId;
+
+    private long id;
 
 
 
 
-    // Here I will add more specifics such as player mesurements financial and age
+    // Here I will add more specifics such as player financial and age
     private Integer salary;
     private LocalDate dateOfBirth;
+    private LocalDate currentDate;
 
     //Constructor Method
-    public Player(String firstName, String lastName, int jerseyNumber, Position position, long playerId, Integer salary, LocalDate dateOfBirth ){
+    public Player(String firstName, String lastName, int jerseyNumber, Position position, long id, Integer salary, LocalDate dateOfBirth, LocalDate currentDate ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.jerseyNumber = jerseyNumber;
         this.position = position;
-        this.playerId = playerId;
+        this.id = id;
         this.salary = salary;
         this.dateOfBirth = dateOfBirth;
+        this.currentDate = currentDate;
 
 
 
@@ -39,7 +46,25 @@ public class Player {
         DEFENDER,
         GOALKEEPER
     }
-    // Getters and Setters
+
+    //Age calculation Method
+    // Returning null fixes an edge case where we get a null on someone's birthday
+    public int ageCalculation(LocalDate dateOfBirth, LocalDate currentDate ) {
+        if (dateOfBirth == null || currentDate == null){
+            return 0;
+        }
+        return Period.between(dateOfBirth, currentDate).getYears();
+    }
+    public int getAge(){
+        return ageCalculation(this.dateOfBirth, LocalDate.now());
+    }
+
+    //Method for Full Name
+    public String getFullName(){
+        return this.firstName + this.lastName;
+    }
+    // Getters and Setters{
+
         public void setFirstName(String firstName){
             this.firstName = firstName;
         }
@@ -72,12 +97,12 @@ public class Player {
             return this.position;
         }
 
-        public void setPlayerId(long playerId){
-            this.playerId = playerId;
+        public void setId(long id){
+            this.id = id;
         }
 
-        public long getPlayerId(){
-            return this.playerId;
+        public long getId(){
+            return this.id;
         }
 
         public void setSalary(Integer salary){
@@ -88,12 +113,20 @@ public class Player {
             return this.salary;
         }
 
-        public void setAge(LocalDate age) {
-            this.dateOfBirth = age;
+        public void setDateOfBirth(LocalDate dateOfBirth){
+            this.dateOfBirth = dateOfBirth;
         }
 
-        public LocalDate getAge(){
+        public LocalDate getDateOfBirth(){
             return this.dateOfBirth;
+        }
+
+        public void setCurrentDate(LocalDate currentDate){
+            this.currentDate = currentDate;
+        }
+
+        public LocalDate getCurrentDate(){
+            return this.currentDate;
         }
 
 
