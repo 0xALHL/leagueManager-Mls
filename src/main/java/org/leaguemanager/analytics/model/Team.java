@@ -1,11 +1,13 @@
 package org.leaguemanager.analytics.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @Entity
-
-
-
+@Table(name = "Teams")
 public class Team {
 // Encapsulated instance variables
     private String teamName;
@@ -14,6 +16,9 @@ public class Team {
     private int wins = 0;
     private int losses = 0;
     private int draws = 0;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     //private Conference conference;
 
 
@@ -23,11 +28,16 @@ private enum Conference{
 }
 
 
-public Team(String teamName, String location, String stadium){
+public Team(String teamName, String location, String stadium,Long id){
     this.teamName = teamName;
     this.location = location;
     this.stadium = stadium;
+    this.id = id;
     //this.conference = conference;
+}
+// Needed a no-arg Constructor
+public Team(){
+
 }
 
 // We want to create some helper methods for winning, losing and draws.
@@ -82,6 +92,14 @@ public void setStadium(String stadium){
 
 public String getStadium(){
     return this.stadium;
+}
+
+public void setId(Long id){
+    this.id = id;
+}
+
+public Long getId(){
+    return this.id;
 }
 
 

@@ -2,9 +2,12 @@ package org.leaguemanager.analytics.model;
 
 
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.Period;
-
+@Entity
+@Table(name = "Players")
 public class Player {
     // Here I encapsulated these variables which are the core attributes for a player
     private String firstName;
@@ -12,8 +15,10 @@ public class Player {
     private int jerseyNumber;
     private Position position;
     //Using long since it gives us some overhead
-
-    private long id;
+    // Using Long which is the wrapper class to long and is better for id's since there is no index associated with it on creation.
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
 
 
@@ -24,7 +29,7 @@ public class Player {
     private LocalDate currentDate;
 
     //Constructor Method
-    public Player(String firstName, String lastName, int jerseyNumber, Position position, long id, Integer salary, LocalDate dateOfBirth, LocalDate currentDate ){
+    public Player(String firstName, String lastName, int jerseyNumber, Position position, Long id, Integer salary, LocalDate dateOfBirth, LocalDate currentDate ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.jerseyNumber = jerseyNumber;
@@ -35,6 +40,11 @@ public class Player {
         this.currentDate = currentDate;
 
 
+
+    }
+
+    //Created a no arg constructor
+    public Player(){
 
     }
 
