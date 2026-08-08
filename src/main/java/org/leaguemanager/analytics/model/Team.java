@@ -5,6 +5,9 @@ public class Team {
     private String teamName;
     private String location;
     private String stadium;
+    private int wins = 0;
+    private int losses = 0;
+    private int draws = 0;
     //private Conference conference;
 
 
@@ -22,23 +25,34 @@ public Team(String teamName, String location, String stadium){
 }
 
 // We want to create some helper methods for winning, losing and draws.
-// I will also give them public access modifiers so they can be accessed by the match class.
+// I will also give them public access modifiers so they can be accessed by the match class
 public void recordWins(){
-
+    wins++;
 
 }
 
 public void recordLosses(){
-
+    losses++;
 
 }
 
 
 public void recordDraws(){
-
+    draws++;
 
 }
 
+public int getWins(){
+    return this.wins;
+}
+
+public int getLosses(){
+    return this.losses;
+}
+
+public int getDraws() {
+    return this.draws;
+}
 // Do not make getters private because it defeats the purpose
 public void setClubName(String clubName){
     this.teamName = clubName;
