@@ -42,7 +42,7 @@ public class Player {
 
 
     }
-
+    // Remember to no Arg Constructors
     //Created a no arg constructor
     public Player(){
 
