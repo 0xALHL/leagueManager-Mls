@@ -17,7 +17,7 @@ public class Team {
     private Long id;
     //private Conference conference;
 
-@Enumerated
+@Enumerated(EnumType.STRING)
 private Conference conference;
 public enum Conference{
     EASTERN,
@@ -61,23 +61,23 @@ public void recordDraws(){
 
 
 
-public int getWins(){
+public Integer  getWins(){
     return this.wins;
 }
 
-public int getLosses(){
+public Integer getLosses(){
     return this.losses;
 }
 
-public int getDraws() {
+public Integer getDraws() {
     return this.draws;
 }
 // Do not make getters private because it defeats the purpose
-public void setClubName(String clubName){
-    this.teamName = clubName;
+public void setTeamName(String teamName){
+    this.teamName = teamName;
 }
 
-public String getClubName(){
+public String getTeamName(){
     return this.teamName;
 }
 

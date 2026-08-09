@@ -12,8 +12,8 @@ public class Player {
     // Here I encapsulated these variables which are the core attributes for a player
     private String firstName;
     private String lastName;
-    private int jerseyNumber;
-    @Enumerated
+    private Integer jerseyNumber;
+    @Enumerated(EnumType.STRING)
     private Position position;
     //Using long since it gives us some overhead
     // Using Long which is the wrapper class to long and is better for id's since there is no index associated with it on creation.
@@ -27,18 +27,17 @@ public class Player {
     // Here I will add more specifics such as player financial and age
     private Integer salary;
     private LocalDate dateOfBirth;
-    private LocalDate currentDate;
+
 
     //Constructor Method
-    public Player(String firstName, String lastName, int jerseyNumber, Position position, Long id, Integer salary, LocalDate dateOfBirth, LocalDate currentDate ){
+    public Player(String firstName, String lastName, Integer jerseyNumber, Position position, Integer salary, LocalDate dateOfBirth ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.jerseyNumber = jerseyNumber;
         this.position = position;
-        this.id = id;
         this.salary = salary;
         this.dateOfBirth = dateOfBirth;
-        this.currentDate = currentDate;
+
 
 
 
@@ -61,7 +60,7 @@ public class Player {
 
     //Age calculation Method
     // Returning null fixes an edge case where we get a null on someone's birthday
-    public int ageCalculation(LocalDate dateOfBirth, LocalDate currentDate ) {
+    public Integer ageCalculation(LocalDate dateOfBirth, LocalDate currentDate ) {
         if (dateOfBirth == null || currentDate == null){
             return 0;
         }
@@ -73,7 +72,7 @@ public class Player {
 
     //Method for Full Name
     public String getFullName(){
-        return this.firstName + this.lastName;
+        return this.firstName + " " + this.lastName;
     }
     // Getters and Setters{
 
@@ -93,11 +92,11 @@ public class Player {
             return this.lastName;
         }
 
-        public void setJerseyNumber(int jerseyNumber){
+        public void setJerseyNumber(Integer jerseyNumber){
             this.jerseyNumber = jerseyNumber;
         }
 
-        public int getJerseyNumber(){
+        public Integer getJerseyNumber(){
             return this.jerseyNumber;
         }
 
@@ -109,11 +108,11 @@ public class Player {
             return this.position;
         }
 
-        public void setId(long id){
+        public void setId(Long id){
             this.id = id;
         }
 
-        public long getId(){
+        public Long getId(){
             return this.id;
         }
 
@@ -133,13 +132,6 @@ public class Player {
             return this.dateOfBirth;
         }
 
-        public void setCurrentDate(LocalDate currentDate){
-            this.currentDate = currentDate;
-        }
-
-        public LocalDate getCurrentDate(){
-            return this.currentDate;
-        }
 
 
 }
