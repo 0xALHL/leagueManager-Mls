@@ -13,6 +13,7 @@ public class Player {
     private String firstName;
     private String lastName;
     private int jerseyNumber;
+    @Enumerated
     private Position position;
     //Using long since it gives us some overhead
     // Using Long which is the wrapper class to long and is better for id's since there is no index associated with it on creation.
@@ -49,6 +50,7 @@ public class Player {
     }
 
     // Enum Positions since they are fixed.
+
 
     public enum Position {
         FORWARD,

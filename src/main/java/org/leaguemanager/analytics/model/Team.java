@@ -1,10 +1,6 @@
 package org.leaguemanager.analytics.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Teams")
@@ -13,26 +9,30 @@ public class Team {
     private String teamName;
     private String location;
     private String stadium;
-    private int wins = 0;
-    private int losses = 0;
-    private int draws = 0;
+    private Integer wins = 0;
+    private Integer losses = 0;
+    private Integer draws = 0;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //private Conference conference;
 
-
-private enum Conference{
+@Enumerated
+private Conference conference;
+public enum Conference{
     EASTERN,
     WESTERN
 }
 
 
-public Team(String teamName, String location, String stadium,Long id){
+
+
+// Don't into the constructor
+public Team(String teamName, String location, String stadium){
     this.teamName = teamName;
     this.location = location;
     this.stadium = stadium;
-    this.id = id;
+    //this.id = id;
     //this.conference = conference;
 }
 // Needed a no-arg Constructor
@@ -57,6 +57,9 @@ public void recordDraws(){
     draws++;
 
 }
+
+
+
 
 public int getWins(){
     return this.wins;
@@ -101,6 +104,15 @@ public void setId(Long id){
 public Long getId(){
     return this.id;
 }
+
+public void setConference(Conference conference){
+    this.conference = conference;
+    }
+
+    public Conference getConference(){
+        return this.conference;
+    }
+
 
 
 
