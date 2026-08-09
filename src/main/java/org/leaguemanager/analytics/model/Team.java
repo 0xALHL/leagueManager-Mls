@@ -1,6 +1,9 @@
 package org.leaguemanager.analytics.model;
-
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "Teams")
@@ -15,6 +18,9 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    //using an arraylist so the list grows add players are added
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Player> players = new ArrayList<>();
     //private Conference conference;
 
 @Enumerated(EnumType.STRING)
