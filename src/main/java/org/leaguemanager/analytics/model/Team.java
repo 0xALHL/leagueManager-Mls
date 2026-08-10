@@ -20,7 +20,7 @@ public class Team {
     private Long id;
     //using an arraylist so the list grows add players are added
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Player> players = new ArrayList<>();
+    private List<Player> players = new ArrayList<>();
     //private Conference conference;
 
 @Enumerated(EnumType.STRING)
@@ -63,6 +63,7 @@ public void recordDraws(){
     draws++;
 
 }
+
 
 
 
@@ -117,6 +118,14 @@ public void setConference(Conference conference){
 
     public Conference getConference(){
         return this.conference;
+    }
+
+    public List<Player> getPlayers(){
+        return this.players;
+    }
+
+    public void setPlayers(List<Player> players){
+        this.players = players;
     }
 
 
