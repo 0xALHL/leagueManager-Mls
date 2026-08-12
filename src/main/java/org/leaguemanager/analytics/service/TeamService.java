@@ -13,8 +13,18 @@ public class TeamService {
         this.teamRepository = teamRepository;
     }
     // New comment
+    // Need to create functions for features
+    // This returns a list of teams
     public List<Team> getAllTeams(){
+        return teamRepository.findAll();
+    }
+    // Find one specific team
+    public Optional<Team> getTeamById(Long id) {
+        return teamRepository.findById(id);
 
     }
-
+    // Save and or update a team
+    public Team createTeam(Team team){
+        return teamRepository.save(team);
+    }
 }
