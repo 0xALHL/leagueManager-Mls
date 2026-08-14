@@ -12,9 +12,9 @@ public class Team {
     private String teamName;
     private String location;
     private String stadium;
-    private Integer wins = 0;
-    private Integer losses = 0;
-    private Integer draws = 0;
+    private int wins = 0;
+    private int losses = 0;
+    private int draws = 0;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
