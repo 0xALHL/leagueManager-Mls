@@ -7,7 +7,9 @@ public class Staff {
     private String staffFirstName;
     private String staffLastName;
 
-    private Integer Salary;
+    private int Salary;
+    @Id
+    private Long id;
 
     private enum staffCategory {
         Coaching,
@@ -40,9 +42,52 @@ public class Staff {
 
     }
 
+    // Helper Methods if needed
+
+    // Regular Constructor
+    public Staff(String staffFirstName, String staffLastName, int Salary){
+        this.staffFirstName = staffFirstName;
+        this.staffLastName = staffLastName;
+        this.Salary = Salary;
+    }
 
 
+    // No Arg Constructor
+    public Staff(){
 
-    @Id
-    private Long id;
+
+    }
+
+    // Getters and Setters
+    public void setStaffFirstName(String staffFirstName){
+        this.staffFirstName = staffFirstName;
+    }
+
+    public String getStaffFirstName(){
+        return this.staffFirstName;
+    }
+
+    public void setStaffLastName(String staffLastName){
+        this.staffLastName = staffLastName;
+    }
+
+    public String getStaffLastName(){
+        return this.staffLastName;
+    }
+
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public Long getId(){
+        return this.id;
+    }
+
+    public void setSalary(int Salary) {
+        this.Salary = Salary;
+    }
+
+    public int getSalary(){
+        return this.Salary;
+    }
 }
