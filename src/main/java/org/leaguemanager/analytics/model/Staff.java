@@ -1,7 +1,13 @@
 package org.leaguemanager.analytics.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+
+import java.time.LocalDate;
+import java.time.Period;
+
 @Entity
 public class Staff {
     private String staffFirstName;
@@ -11,6 +17,8 @@ public class Staff {
     @Id
     private Long id;
 
+    private LocalDate dateOfBirth;
+
     private enum staffCategory {
         Coaching,
         Executive,
@@ -18,7 +26,7 @@ public class Staff {
         Scouting
 
     }
-
+    // Got to figure out what to do with these Enums in JPA annotation
     private enum staffRole {
         HeadCoach,
         AssistantCoach,
@@ -44,18 +52,26 @@ public class Staff {
 
     // Helper Methods if needed
 
+    // We need a method for calculating age similar to the player class so maybe just bring that over here
+    public Integer ageCalculation(LocalDate dateOfBirth, LocalDate currentDate ) {
+        if (dateOfBirth == null || currentDate == null) {
+            return 0;
+        }
+        return Period.between(dateOfBirth, currentDate).getYears();
+    }
+
     // Regular Constructor
     public Staff(String staffFirstName, String staffLastName, int Salary){
         this.staffFirstName = staffFirstName;
         this.staffLastName = staffLastName;
         this.Salary = Salary;
     }
-
-
+    // String Concatenation for Staff First and Last Name
+    public String getFullName(){
+        return this.staffFirstName + " " + this.staffLastName;
+    }
     // No Arg Constructor
     public Staff(){
-
-
     }
 
     // Getters and Setters
