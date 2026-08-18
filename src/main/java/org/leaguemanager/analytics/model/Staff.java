@@ -1,25 +1,30 @@
 package org.leaguemanager.analytics.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
+
 
 @Entity
 public class Staff {
     private String staffFirstName;
     private String staffLastName;
-
-    private int Salary;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    private Team team;
+    private int salary;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private LocalDate dateOfBirth;
+    @Enumerated(EnumType.STRING)
+    private StaffRole staffRole;
+    @Enumerated(EnumType.STRING)
+    private StaffCategory staffCategory;
 
-    private enum staffCategory {
+
+    private enum StaffCategory {
         Coaching,
         Executive,
         Medical,
@@ -27,7 +32,8 @@ public class Staff {
 
     }
     // Got to figure out what to do with these Enums in JPA annotation
-    private enum staffRole {
+
+    private enum StaffRole {
         HeadCoach,
         AssistantCoach,
         PositionCoach,
@@ -61,10 +67,10 @@ public class Staff {
     }
 
     // Regular Constructor
-    public Staff(String staffFirstName, String staffLastName, int Salary){
+    public Staff(String staffFirstName, String staffLastName, int salary){
         this.staffFirstName = staffFirstName;
         this.staffLastName = staffLastName;
-        this.Salary = Salary;
+        this.salary = salary;
     }
     // String Concatenation for Staff First and Last Name
     public String getFullName(){
@@ -99,11 +105,32 @@ public class Staff {
         return this.id;
     }
 
-    public void setSalary(int Salary) {
-        this.Salary = Salary;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public int getSalary(){
-        return this.Salary;
+        return this.salary;
+    }
+
+
+    public int getAge(){
+        return ageCalculation(this.dateOfBirth, LocalDate.now());
+    }
+
+    public LocalDate getDateOfBirth(){
+        return this.dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Team getTeam() {
+        return this.team;
+    }
+
+    public void setTeam(Team team){
+        this.team = team;
     }
 }

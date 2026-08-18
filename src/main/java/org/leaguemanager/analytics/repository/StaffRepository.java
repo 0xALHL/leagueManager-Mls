@@ -1,9 +1,7 @@
 package org.leaguemanager.analytics.repository;
-import org.leaguemanager.analytics.model.Match;
+import org.leaguemanager.analytics.model.Staff;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 @Repository
-public interface MatchRepository extends JpaRepository <Match, Long> {
-
-    // CRUD features
+public interface StaffRepository extends JpaRepository <Staff, Long> {
 }
