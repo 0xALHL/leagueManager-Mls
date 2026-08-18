@@ -74,7 +74,7 @@ public class Staff {
     public Staff(){
     }
 
-    // Getters and Setters
+    // Getters and Setters for my staff variables
     public void setStaffFirstName(String staffFirstName){
         this.staffFirstName = staffFirstName;
     }
