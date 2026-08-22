@@ -62,5 +62,123 @@ public class TeamAnalytics {
     //No Arg Constructor
     public TeamAnalytics(){}
 
-    //Getters and Setters at the bottom
+    //Offensive Getters and Setters
+
+    public void setGoals(int goals){
+        this.goals = goals;
+    }
+
+    public int getGoals(){
+        return this.goals;
+    }
+
+    public void setShotsTaken(int shotsTaken){
+        this.shotsTaken = shotsTaken;
+    }
+
+    public int getShotsTaken() {
+        return this.shotsTaken;
+    }
+
+    public void setShotsOnTarget(int shotsOnTarget){
+        this.shotsOnTarget = shotsOnTarget;
+    }
+
+    public int getShotsOnTarget(){
+        return this.shotsOnTarget;
+    }
+
+    public void setTotalPassesAttempted(int totalPassesAttempted){
+        this.totalPassesAttempted = totalPassesAttempted;
+    }
+
+    public int getTotalPassesAttempted(){
+        return this.totalPassesAttempted;
+    }
+
+    public void setTotalPassesCompleted(int totalPassesCompleted){
+        this.totalPassesCompleted = totalPassesCompleted;
+    }
+
+    public int getTotalPassesCompleted(){
+        return this.totalPassesCompleted;
+    }
+
+
+    public void setTouches(int touches){
+        this.touches = touches;
+    }
+
+    public int getTouches(){
+        return this.touches;
+    }
+    //Defensive Getters and Setters
+
+    public void setTacklesWon(int tacklesWon){
+        this.tacklesWon = tacklesWon;
+    }
+
+    public int getTacklesWon(){
+        return this.tacklesWon;
+    }
+
+    public void setInterceptions(int interceptions){
+        this.interceptions = interceptions;
+    }
+
+    public int getInterceptions(){
+        return this.interceptions;
+    }
+
+    public void setFoulsCommited(int foulsCommited){
+        this.foulsCommited = foulsCommited;
+    }
+
+    public int getFoulsCommited(){
+        return this.foulsCommited;
+    }
+
+    public void setYellowCards(int yellowCards){
+        this.yellowCards = yellowCards;
+    }
+
+    public int getYellowCards(){
+        return this.yellowCards;
+    }
+
+    public void setRedCardsCards(int redCards){
+        this.redCards = redCards;
+    }
+
+    public int getRedCards(){
+        return this.redCards;
+    }
+
+    public void setSaves(int saves){
+        this.saves = saves;
+    }
+
+    public int getSaves(){
+        return this.saves;
+    }
+
+    // Goal Keeper Getters and Setters
+
+    public void setGoalsAgainst(int goalsAgainst){
+        this.goalsAgainst = goalsAgainst;
+    }
+
+    public int getGoalsAgainst(){
+        return this.goalsAgainst;
+    }
+
+    public void setCleanSheets(int cleanSheets){
+        this.cleanSheets = cleanSheets;
+    }
+
+    public int getCleanSheets(){
+        return this.cleanSheets;
+    }
+
+
 }
