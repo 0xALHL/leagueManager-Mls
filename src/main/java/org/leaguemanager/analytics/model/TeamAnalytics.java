@@ -18,7 +18,7 @@ public class TeamAnalytics {
     //Defensive Variables
     private int tacklesWon;
     private int interceptions;
-    private int foulsCommited;
+    private int foulsCommitted;
     private int yellowCards;
     private int redCards;
     private int saves;
@@ -31,16 +31,16 @@ public class TeamAnalytics {
     private Long id;
 
     public TeamAnalytics(int goals, int shotsTaken, int shotsOnTarget, int totalPassesAttempted, int totalPassesCompleted, int touches, int tacklesWon, int interceptions,
-                         int foulsCommited, int yellowCards, int redCards, int saves, int goalsAgainst, int cleanSheets){
+                         int foulsCommitted, int yellowCards, int redCards, int saves, int goalsAgainst, int cleanSheets){
         this.goals = goals;
         this.shotsTaken = shotsTaken;
         this.shotsOnTarget = shotsOnTarget;
         this.totalPassesAttempted = totalPassesAttempted;
-        this. totalPassesCompleted = totalPassesCompleted;
+        this.totalPassesCompleted = totalPassesCompleted;
         this.touches = touches;
         this.tacklesWon = tacklesWon;
         this.interceptions = interceptions;
-        this.foulsCommited = foulsCommited;
+        this.foulsCommitted = foulsCommitted;
         this.yellowCards = yellowCards;
         this.redCards = redCards;
         this.saves = saves;
@@ -51,8 +51,22 @@ public class TeamAnalytics {
 
     // Finishing up the Team Analytics Model and the Player Model tomorrow
     // Save down here for helper methods
-    public void passCompletionPercentage(){
+    // Set to a double
+    //Casted double at the bottom to ensure it returns double by forcing floating point division
+    public double passCompletionPercentage(){
+        if (totalPassesAttempted == 0) {
+            return 0.0;
+        }
 
+        return ((double)totalPassesCompleted / totalPassesAttempted) * 100;
+    }
+
+    public double teamShotAccuracy(){
+        if (shotsTaken == 0) {
+            return 0.0;
+        }
+
+        return ((double)shotsOnTarget/ shotsTaken) * 100;
     }
 
 
@@ -130,12 +144,12 @@ public class TeamAnalytics {
         return this.interceptions;
     }
 
-    public void setFoulsCommited(int foulsCommited){
-        this.foulsCommited = foulsCommited;
+    public void setFoulsCommitted(int foulsCommitted){
+        this.foulsCommitted = foulsCommitted;
     }
 
-    public int getFoulsCommited(){
-        return this.foulsCommited;
+    public int getFoulsCommitted(){
+        return this.foulsCommitted;
     }
 
     public void setYellowCards(int yellowCards){
@@ -146,7 +160,7 @@ public class TeamAnalytics {
         return this.yellowCards;
     }
 
-    public void setRedCardsCards(int redCards){
+    public void setRedCards(int redCards){
         this.redCards = redCards;
     }
 
