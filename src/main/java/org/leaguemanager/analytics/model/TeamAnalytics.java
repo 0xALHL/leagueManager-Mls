@@ -1,8 +1,6 @@
 package org.leaguemanager.analytics.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class TeamAnalytics {
@@ -25,6 +23,10 @@ public class TeamAnalytics {
     //Team Goalie Variables
     private int goalsAgainst;
     private int cleanSheets;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id", unique = true)
+    private Team team;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -192,6 +194,18 @@ public class TeamAnalytics {
 
     public int getCleanSheets(){
         return this.cleanSheets;
+    }
+
+    public void setTeam(Team team){
+        this.team = team;
+    }
+
+    public Team getTeam(){
+        return this.team;
+    }
+
+    public Long getId(){
+        return this.id;
     }
 
 
