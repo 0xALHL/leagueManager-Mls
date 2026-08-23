@@ -1,8 +1,11 @@
 package org.leaguemanager.analytics.model;
-
+import lombok.Getter;
+import lombok.Setter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 @Entity
+@Getter
+@Setter
 public class PlayerAnalytics {
 
     //General Stats
@@ -18,6 +21,7 @@ public class PlayerAnalytics {
     private int totalFoulsSuffered;
     private int totalOffSides;
     private int totalRedCards;
+    private int totalYellowCards;
 
 
 
@@ -57,6 +61,12 @@ public class PlayerAnalytics {
         }
             return ((double) totalGoals * 90 / totalMinutesPlayed );
     }
+    // Finish Main Constructor
+    public PlayerAnalytics(int totalGamesPlayed, int totalGamesStarted, int totalMinutesPlayed, int totalSubOn, int totalGoals,
+                           int totalAssist, int totalTargetScoringAttempts,int totalKeyPasses, int totalFouls, int totalFoulsSuffered, int totalOffSides, int totalYellowCards, int totalRedCards, int totalCompletedPasses, int totalPasses, int totalCornerKicks ){
+
+    }
+
     // No Args Constructor
     public PlayerAnalytics(){
 
