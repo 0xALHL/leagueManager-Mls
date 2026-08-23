@@ -26,19 +26,29 @@ public class PlayerAnalytics {
     private int totalPasses;
     private int totalCornerKicks;
     private int totalSuccessfulCrosses;
+    private int attemptedCrosses;
+    private int completedLongPasses;
+    private int attemptedLongPass;
+    private int freeKicks;
     //Attacking
     private int leftFootedShots;
     private int rightFootedShots;
     private int headedShots;
     private int penaltyKickGoals;
     private int penaltyKicksTaken;
+    private int onTargetScoringAttempts;
 
     //Defending
+    private int goalsAgainst;
+    private int arielDuels;
+    private int clearances;
+    private int interceptions;
+
 
 
 
     //GoalKeeping
-
+    private int cleanSheet;
 
     // Always check for 0 when doing averages
     public double goalsPer90(){
@@ -46,6 +56,18 @@ public class PlayerAnalytics {
             return 0.0;
         }
             return ((double) totalGoals * 90 / totalMinutesPlayed );
+    }
+    // No Args Constructor
+    public PlayerAnalytics(){
+
+    }
+
+    public double longBallAccuracyPercentage(){
+
+    }
+
+    public double assistPer90() {
+
     }
 
     public double passPercentage(){
@@ -59,6 +81,30 @@ public class PlayerAnalytics {
     public double accuratePassPercentage(){
 
     }
+
+    public double crossPercentage(){
+
+    }
+
+    public double shotConversionRatio(){
+
+    }
+
+    public double shotConversion(){
+
+    }
+
+    public double averagePlayerRating(){
+
+    }
+
+    public double arielDuelPercentage(){
+
+    }
+
+
+
+
 
 
 
