@@ -62,6 +62,8 @@ public class PlayerAnalytics {
             return ((double) totalGoals * 90 / totalMinutesPlayed );
     }
     // Finish Main Constructor
+
+    // New Comment
     public PlayerAnalytics(int totalGamesPlayed, int totalGamesStarted, int totalMinutesPlayed, int totalSubOn, int totalGoals,
                            int totalAssist, int totalTargetScoringAttempts,int totalKeyPasses, int totalFouls, int totalFoulsSuffered, int totalOffSides, int totalYellowCards, int totalRedCards, int totalCompletedPasses, int totalPasses, int totalCornerKicks ){
 
