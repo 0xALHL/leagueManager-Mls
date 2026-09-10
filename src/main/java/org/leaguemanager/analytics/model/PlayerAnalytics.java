@@ -70,7 +70,7 @@ public class PlayerAnalytics {
               }
     // Finish Main Constructor
 
-    // New Comment
+    
     public PlayerAnalytics(int totalGamesPlayed, int totalGamesStarted, int totalMinutesPlayed, int totalSubOn, int totalGoals,
                            int totalAssist, int totalTargetScoringAttempts,int totalKeyPasses, int totalFouls, int totalFoulsSuffered, int totalOffSides, int totalYellowCards, int totalRedCards, int totalCompletedPasses, int totalPasses, int totalCornerKicks, int totalSuccessfulCrosses,
                        int attemptedCrosses, int completedLongPasses, int attemptedLongPasses, int freeKicks, int leftFootedShots, int rightFootedShots, int headedShots, int penaltyKickGoals, int penaltyKicksTaken, int onTargetScoringAttempts, int goalsAgaints, int arielDuels, int clearances, int interceptions ){
@@ -80,7 +80,10 @@ public class PlayerAnalytics {
 
 
     public double longBallAccuracyPercentage(){
-
+        if (attemptedLongPasses == 0){
+            return 0.0
+        }
+            return ((double)completedLongPasses / attemptedLongPasses);
     }
 
     public double assistPer90() {
