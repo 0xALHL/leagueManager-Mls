@@ -94,9 +94,6 @@ public class PlayerAnalytics {
 
     }
 
-    public double shotConversionRatio(){
-
-    }
 
     public double accuratePassPercentage(){
 

@@ -12,9 +12,9 @@ public class mlsTestCase {
     void goalsPer90CalculationCorrect(){
         PlayerAnalytics player1 = new PlayerAnalytics();
         player1.setTotalGoals(10);
-        player1.setTotalMinutesPlayed();
+        player1.setTotalMinutesPlayed(900);
 
-        double result = player1.goalsPer90(900);
+        double result = player1.goalsPer90();
 
 
         assertEquals(1.0, result, 0.0001);
