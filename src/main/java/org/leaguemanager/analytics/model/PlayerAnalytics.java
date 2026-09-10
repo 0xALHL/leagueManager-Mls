@@ -58,12 +58,15 @@ public class PlayerAnalytics {
     //GoalKeeping
     private int cleanSheet;
 
+
+        @Id
+        private Long id;
     // Always check for 0 when doing averages
     public double goalsPer90(){
         if (totalMinutesPlayed == 0){
             return 0.0;
         }
-            return ((double) totalGoals * 90 / totalMinutesPlayed );
+            return ((double) totalGoals * 90 / totalMinutesPlayed);
               }
     // Finish Main Constructor
 
@@ -74,14 +77,17 @@ public class PlayerAnalytics {
 
     }
 
-}
+
 
     public double longBallAccuracyPercentage(){
 
     }
 
     public double assistPer90() {
-
+        if (totalMinutesPlayed  == 0) {
+            return 0.0;
+        }
+        return ((double)totalAssist * 90 / totalMinutesPlayed);
     }
 
     public double passPercentage(){
@@ -117,10 +123,7 @@ public class PlayerAnalytics {
     }
 
 
-    }
-
-
-    @Id
-    private Long id;
-
 }
+
+
+
