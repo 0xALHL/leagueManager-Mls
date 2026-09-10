@@ -1,11 +1,15 @@
 package org.leaguemanager.analytics.model;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor;
+@NoArgsConstructor;
 public class PlayerAnalytics {
 
     //General Stats
@@ -32,7 +36,7 @@ public class PlayerAnalytics {
     private int totalSuccessfulCrosses;
     private int attemptedCrosses;
     private int completedLongPasses;
-    private int attemptedLongPass;
+    private int attemptedLongPasses;
     private int freeKicks;
     //Attacking
     private int leftFootedShots;
@@ -60,19 +64,17 @@ public class PlayerAnalytics {
             return 0.0;
         }
             return ((double) totalGoals * 90 / totalMinutesPlayed );
-    }
+              }
     // Finish Main Constructor
 
     // New Comment
     public PlayerAnalytics(int totalGamesPlayed, int totalGamesStarted, int totalMinutesPlayed, int totalSubOn, int totalGoals,
-                           int totalAssist, int totalTargetScoringAttempts,int totalKeyPasses, int totalFouls, int totalFoulsSuffered, int totalOffSides, int totalYellowCards, int totalRedCards, int totalCompletedPasses, int totalPasses, int totalCornerKicks ){
+                           int totalAssist, int totalTargetScoringAttempts,int totalKeyPasses, int totalFouls, int totalFoulsSuffered, int totalOffSides, int totalYellowCards, int totalRedCards, int totalCompletedPasses, int totalPasses, int totalCornerKicks, int totalSuccessfulCrosses,
+                       int attemptedCrosses, int completedLongPasses, int attemptedLongPasses, int freeKicks, int leftFootedShots, int rightFootedShots, int headedShots, int penaltyKickGoals, int penaltyKicksTaken, int onTargetScoringAttempts, int goalsAgaints,   ){
 
     }
 
-    // No Args Constructor
-    public PlayerAnalytics(){
-
-    }
+}
 
     public double longBallAccuracyPercentage(){
 
@@ -113,8 +115,6 @@ public class PlayerAnalytics {
     public double arielDuelPercentage(){
 
     }
-
-
 
 
 
