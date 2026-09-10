@@ -31,13 +31,13 @@ public class PlayerAnalytics {
 
     //Passing
     private int totalCompletedPasses;
-    private int totalPasses;
+    private int totalAttemptedPasses;
     private int totalCornerKicks;
     private int totalSuccessfulCrosses;
     private int attemptedCrosses;
     private int completedLongPasses;
     private int attemptedLongPasses;
-    private int freeKicks;
+     private int freeKicks;
     //Attacking
     private int leftFootedShots;
     private int rightFootedShots;
@@ -94,6 +94,10 @@ public class PlayerAnalytics {
     }
 
     public double passPercentage(){
+        if (totalAttemptedPasses == 0){
+            return 0.0;
+        }
+        return ((double)totalCompletesPasses / totalAttemptedPasses);
 
     }
 
