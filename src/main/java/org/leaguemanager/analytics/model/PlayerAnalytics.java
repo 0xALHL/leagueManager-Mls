@@ -8,8 +8,8 @@ import jakarta.persistence.Id;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor;
-@NoArgsConstructor;
+@AllArgsConstructor
+@NoArgsConstructor
 public class PlayerAnalytics {
 
     //General Stats
@@ -70,7 +70,7 @@ public class PlayerAnalytics {
     // New Comment
     public PlayerAnalytics(int totalGamesPlayed, int totalGamesStarted, int totalMinutesPlayed, int totalSubOn, int totalGoals,
                            int totalAssist, int totalTargetScoringAttempts,int totalKeyPasses, int totalFouls, int totalFoulsSuffered, int totalOffSides, int totalYellowCards, int totalRedCards, int totalCompletedPasses, int totalPasses, int totalCornerKicks, int totalSuccessfulCrosses,
-                       int attemptedCrosses, int completedLongPasses, int attemptedLongPasses, int freeKicks, int leftFootedShots, int rightFootedShots, int headedShots, int penaltyKickGoals, int penaltyKicksTaken, int onTargetScoringAttempts, int goalsAgaints,   ){
+                       int attemptedCrosses, int completedLongPasses, int attemptedLongPasses, int freeKicks, int leftFootedShots, int rightFootedShots, int headedShots, int penaltyKickGoals, int penaltyKicksTaken, int onTargetScoringAttempts, int goalsAgaints, int arielDuels, int clearances, int interceptions ){
 
     }
 
@@ -117,7 +117,7 @@ public class PlayerAnalytics {
     }
 
 
-
+    }
 
 
     @Id
