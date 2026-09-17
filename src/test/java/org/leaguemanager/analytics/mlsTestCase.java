@@ -16,7 +16,7 @@ public class mlsTestCase {
 
         double result = player1.goalsPer90();
 
-
+        System.out.print("Goals per 90: " + result);
         assertEquals(1.0, result, 0.0001);
     }
 }

@@ -81,7 +81,7 @@ public class PlayerAnalytics {
 
     public double longBallAccuracyPercentage(){
         if (attemptedLongPasses == 0){
-            return 0.0
+            return 0.0;
         }
             return ((double)completedLongPasses / attemptedLongPasses);
     }
@@ -97,34 +97,34 @@ public class PlayerAnalytics {
         if (totalAttemptedPasses == 0){
             return 0.0;
         }
-        return ((double)totalCompletesPasses / totalAttemptedPasses);
+        return ((double)totalCompletedPasses / totalAttemptedPasses);
 
     }
 
 
-    public double accuratePassPercentage(){
-
-    }
-
-    public double crossPercentage(){
-
-    }
-
-    public double shotConversionRatio(){
-
-    }
-
-    public double shotConversion(){
-
-    }
-
-    public double averagePlayerRating(){
-
-    }
-
-    public double arielDuelPercentage(){
-
-    }
+//    public double accuratePassPercentage(){
+//
+//    }
+//
+//    public double crossPercentage(){
+//
+//    }
+//
+//    public double shotConversionRatio(){
+//
+//    }
+//
+//    public double shotConversion(){
+//
+//    }
+//
+//    public double averagePlayerRating(){
+//
+//    }
+//
+//    public double arielDuelPercentage(){
+//
+//    }
 
 
 }
