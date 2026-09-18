@@ -1,13 +1,15 @@
 package org.leaguemanager.analytics;
 
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.leaguemanager.analytics.model.PlayerAnalytics;
+import org.leaguemanager.analytics.model.TeamAnalytics;
 
 public class mlsTestCase {
 
-    // Lets run ap per
 
+    // Goal Per 90 Unit Test
     @Test
     void goalsPer90CalculationCorrect(){
         PlayerAnalytics player1 = new PlayerAnalytics();
@@ -19,4 +21,17 @@ public class mlsTestCase {
         System.out.print("Goals per 90: " + result);
         assertEquals(1.0, result, 0.0001);
     }
+    // Pass Completion Percentage
+    @Test
+    void passCompletionPercentageCorrect(){
+        TeamAnalytics team1 = new TeamAnalytics();
+        team1.setTotalPassesAttempted(950);
+        team1.setTotalPassesCompleted(600);
+
+        double result2 = team1.passCompletionPercentage();
+
+        System.out.print("Pass Completion %: " + result2);
+    }
+
+
 }
