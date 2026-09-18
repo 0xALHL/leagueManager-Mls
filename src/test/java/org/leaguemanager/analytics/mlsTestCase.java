@@ -33,5 +33,19 @@ public class mlsTestCase {
         System.out.print("Pass Completion %: " + result2);
     }
 
+    // Test for Ariel Duel Percentage
+
+    @Test
+    void arielDuelPercentageCorrect(){
+        PlayerAnalytics player1 = new PlayerAnalytics();
+        player1.setArielDuelsWon(6);
+        player1.setArielDuelsLost(2);
+
+        double result = player1.arielDuelPercentage();
+
+        System.out.print("Ariel Duel % " + result);
+
+        assertEquals(75.0, result);
+    }
 
 }

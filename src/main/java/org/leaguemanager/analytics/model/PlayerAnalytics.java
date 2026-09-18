@@ -37,7 +37,8 @@ public class PlayerAnalytics {
     private int attemptedCrosses;
     private int completedLongPasses;
     private int attemptedLongPasses;
-     private int freeKicks;
+    private int freeKicks;
+
     //Attacking
     private int leftFootedShots;
     private int rightFootedShots;
@@ -48,11 +49,13 @@ public class PlayerAnalytics {
 
     //Defending
     private int goalsAgainst;
-    private int arielDuels;
+    private int arielDuelsWon;
+    private int arielDuelsLost;
     private int clearances;
     private int interceptions;
 
-
+    // Bad Stat used for a newer version
+    private int Turnovers;
 
 
     //GoalKeeping
@@ -102,29 +105,31 @@ public class PlayerAnalytics {
     }
 
 
-//    public double accuratePassPercentage(){
-//
-//    }
-//
-//    public double crossPercentage(){
-//
-//    }
-//
-//    public double shotConversionRatio(){
-//
-//    }
-//
-//    public double shotConversion(){
-//
-//    }
-//
-//    public double averagePlayerRating(){
-//
-//    }
-//
-//    public double arielDuelPercentage(){
-//
-//    }
+
+        public double crossPercentage(){
+            if (attemptedCrosses == 0) {
+                return 0.0;
+            }
+            return ((double)totalSuccessfulCrosses / attemptedCrosses) * 100;
+       }
+
+
+        public double shotConversionRate(){
+            if (totalTargetScoringAttempts == 0) {
+                return 0.0;
+            }
+            return ((double)totalGoals/totalTargetScoringAttempts) * 100;
+        }
+
+
+
+        public double arielDuelPercentage(){
+            if (arielDuelsLost == 0) {
+                return 0.0;
+            }
+            return ((double)arielDuelsWon/ (arielDuelsWon + arielDuelsLost)) * 100;
+
+        }
 
 
 }
