@@ -16,8 +16,13 @@ public class AccountSystem {
     private Long id; 
     private String firstName;
     private String lastName;
-    private String userName;
+
+    @Column (unique = true, nullable = false)
+    private String username;
+
+    @Column(unique = true, nullable = false)
     private String email;
+    
     private String passwordHash;
     private LocalDateTime createdAt;
 }
